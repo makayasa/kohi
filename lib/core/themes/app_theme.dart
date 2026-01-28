@@ -70,12 +70,11 @@ class AppTheme {
   //   ),
   // );
 
-  static ThemeData theme2 = ThemeData(
+  static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     colorScheme: ColorScheme(
       brightness: .dark,
-      // primary: AppColors.lightColorGrey,
-      primary: Color(0xFFB3261E),
+      primary: AppColors.lightColorGrey,
       onPrimary: Colors.white,
       secondary: AppColors.lightColorCream,
       onSecondary: Colors.white,

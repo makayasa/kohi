@@ -1,20 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:kohi/core/constant.dart';
-import 'package:kohi/core/routes/app_pages.dart';
 import 'package:kohi/core/themes/cubit/theme_cubit.dart';
-import 'package:kohi/features/home/view/widgets/home_menu_card.dart';
 
 import '../home.dart';
 import 'widgets/home_header.dart';
 
 import 'package:kohi/features/home/view/widgets/home_image_carousel.dart';
-import 'widgets/home_image_carousel.dart';
-import 'widgets/home_item_picdeliver.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -41,6 +35,7 @@ class _HomeViewState extends State<HomeView> {
     logger.e('masuk init state homeview');
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -55,9 +50,11 @@ class _HomeViewState extends State<HomeView> {
             systemNavigationBarColor: Colors.amber,
           ),
           child: Scaffold(
-            floatingActionButton: FloatingActionButton(onPressed: () {
-              context.read<ThemeCubit>().toggleTheme();
-            }),
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                context.read<ThemeCubit>().toggleTheme();
+              },
+            ),
             bottomNavigationBar: BottomNavigationBar(
               items: [
                 BottomNavigationBarItem(
@@ -158,7 +155,7 @@ class HomeMenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    return Container(
+    return SizedBox(
       // padding: .all(10),
       height: 100,
       width: 75,

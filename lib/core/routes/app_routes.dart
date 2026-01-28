@@ -13,6 +13,8 @@ abstract class _Paths {
 
   static const home = '/home';
   static const menu = '/menu';
+  static const login = '/login';
+  static const register = '/register';
 
   static const typhography = '/typhography';
 }

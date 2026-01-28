@@ -5,13 +5,11 @@ class AppColors {
   static const secondary = Color(0xFFD4A373);
   static const whiteMilk = Color(0xFFFEFAE0);
 
-  
   static const cream = Color(0xFFFFF0D1);
   static const brownMedium = Color(0xFF795757);
   static const brownDark = Color(0xFF664343);
   static const brownVeryDark = Color(0xFF3B3030);
 
-  
   static const lightColorMaroon = Color(0xFF452829);
   static const lightColorGrey = Color(0xFF57595B);
   static const lightColorCream = Color(0xFFE8D1C5);
@@ -64,13 +62,8 @@ class AppLightColors {
   //
   static const onSurface = Color(0xFF1c1b1b);
   static const onSurfaceVar = Color(0xFF4e4544);
-  
+
   //* outline
   static const outline = Color(0xFF807474);
   static const outlineVariant = Color(0xFFd1c3c3);
-
-
-
-
-
 }
