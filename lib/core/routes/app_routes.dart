@@ -1,10 +1,12 @@
 part of 'app_pages.dart';
 
-abstract class Routes {
-  Routes._();
+abstract class AppRoutes {
+  AppRoutes._();
 
   static const home = _Paths.home;
   static const menu = _Paths.menu;
+  static const login = _Paths.login;
+  static const register = _Paths.register;
   static const typhography = _Paths.typhography;
 }
 

@@ -23,14 +23,18 @@ void main() async {
   final authBloc = AuthBloc(authUsecase);
   final gorouter = GoRouter(
     refreshListenable: AuthBlocToListenable(authBloc.stream),
-    redirect: (context, state) {
-      final authBloc = context.read<AuthBloc>();
+    redirect: (context, routerState) {
+      // final authBloc = context.read<AuthBloc>();
+      // if (authBloc == AuthState.unauthorized() && routerState.matchedLocation != AppRoutes.register) {
+      //   return AppRoutes.login;
+      // }
       return null;
     },
     initialLocation: AppPages.initial,
     routes: AppPages.routes,
   );
   final themeCubit = ThemeCubit();
+  themeCubit.initTheme();
   runApp(
     MainApp(
       themeCubit: themeCubit,
@@ -58,11 +62,11 @@ class MainApp extends StatelessWidget {
         BlocProvider.value(value: themeCubit),
         BlocProvider.value(value: authBloc),
       ],
-      child: BlocBuilder<ThemeCubit, ThemeData>(
+      child: BlocBuilder<ThemeCubit, ThemeCubitState>(
         builder: (context, state) {
           return MaterialApp.router(
             routerConfig: router,
-            theme: context.read<ThemeCubit>().state,
+            theme: state.theme,
           );
         },
       ),
