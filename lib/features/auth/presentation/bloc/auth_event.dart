@@ -15,4 +15,8 @@ class AuthEvent with _$AuthEvent {
   }) = _Register;
 
   const factory AuthEvent.logout() = _Logout;
+
+  const factory AuthEvent.checkEmail({
+    required String email,
+  }) = _CheckEmail;
 }

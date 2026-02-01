@@ -5,4 +5,5 @@ abstract class AuthRepository {
   Future<User?> register({required String email, required String name, required String password, required String phoneNumber});
   Future<void> logout();
   Future<User?> checkSession();
+  Future<bool> checkEmail({required String email});
 }

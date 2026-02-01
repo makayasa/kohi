@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:kohi/core/constant.dart';
 import 'package:kohi/core/network/dio_client.dart';
 import 'package:kohi/core/network/environtment.dart';
 import 'package:kohi/features/auth/auth.dart';
@@ -64,5 +66,27 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<void> logout() async {
     await storage.delete(key: storageKeyUser);
+  }
+
+  @override
+  Future<bool> checkEmail({required String email}) async {
+    try {
+      logger.e(baseUrl);
+      final res = await dioClient.post(
+        '$baseUrl/user/check-email',
+        body: {
+          'email': email,
+        },
+      );
+      print('hasil checkemail ${res.data}');
+      return res.data['isRegistered'];
+    } on DioException catch (e) {
+      logger.e('error checkEmail $e');
+      return false;
+    }
+     catch (e) {
+      logger.e('error $e');
+      return false;
+    }
   }
 }
