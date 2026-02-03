@@ -17,7 +17,7 @@ class HomeHeader extends StatelessWidget {
           height: 70,
           decoration: BoxDecoration(
             // color: theme.colorScheme.primaryContainer,
-            color: theme.colorScheme.primary,
+            color: theme.colorScheme.tertiary,
             borderRadius: .circular(10),
           ),
           child: Row(

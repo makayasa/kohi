@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:go_router/go_router.dart';
@@ -10,6 +9,8 @@ import 'package:kohi/core/themes/cubit/theme_cubit.dart';
 import 'package:kohi/features/auth/auth.dart';
 import 'package:kohi/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:kohi/features/auth/presentation/bloc/auth_bloc_to_listenable.dart';
+
+import 'app/main_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,34 +43,4 @@ void main() async {
       router: gorouter,
     ),
   );
-}
-
-class MainApp extends StatelessWidget {
-  const MainApp({
-    required this.themeCubit,
-    required this.authBloc,
-    required this.router,
-    super.key,
-  });
-  final ThemeCubit themeCubit;
-  final AuthBloc authBloc;
-  final GoRouter router;
-
-  @override
-  Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider.value(value: themeCubit),
-        BlocProvider.value(value: authBloc),
-      ],
-      child: BlocBuilder<ThemeCubit, ThemeCubitState>(
-        builder: (context, state) {
-          return MaterialApp.router(
-            routerConfig: router,
-            theme: state.theme,
-          );
-        },
-      ),
-    );
-  }
 }

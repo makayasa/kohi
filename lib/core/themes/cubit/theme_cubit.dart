@@ -43,6 +43,19 @@ class ThemeCubit extends Cubit<ThemeCubitState> {
     final baseTheme = AppTheme.lightTheme;
     final colorScheme = baseTheme.colorScheme;
     final textTheme = GoogleFonts.nunitoSansTextTheme(baseTheme.textTheme);
+    final iconTheme = IconThemeData(
+      // color: colorScheme.primary,
+      // color: Colors.lightBlue,
+    );
+    final botto = BottomNavigationBarThemeData(
+      backgroundColor: colorScheme.surface,
+      selectedLabelStyle: textTheme.labelMedium,
+      selectedItemColor: colorScheme.secondary,
+      unselectedLabelStyle: textTheme.labelMedium,
+      unselectedItemColor: colorScheme.tertiary,
+      // selectedIconTheme: IconThemeData()
+      // selectedIconTheme: iconTheme,
+    );
     return baseTheme.copyWith(
       textTheme: GoogleFonts.nunitoSansTextTheme(baseTheme.textTheme),
       inputDecorationTheme: InputDecorationTheme(
@@ -56,6 +69,8 @@ class ThemeCubit extends Cubit<ThemeCubitState> {
           borderRadius: .circular(10),
         ),
       ),
+      iconTheme: iconTheme,
+      bottomNavigationBarTheme: botto,
     );
   }
 
